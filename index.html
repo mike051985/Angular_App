@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="todoApp">
+    <!-- Create a container div for our app -->
+    <div ng-controller="todoCtrl">
+        <h1 class="title">Task Management</h1>
+
+        <!-- Add a form with an input field and a button to add new tasks -->
+        <form ng-submit="addTask()">
+            <input 
+                type="text" 
+                ng-model="newTask" 
+                autocomplete="off"
+                placeholder="Add a new task..."
+            >
+            <button type="submit">
+                Add Task
+            </button>
+        </form>
+
+        <!-- Add a list to display the tasks -->
+        <ul>
+            <li ng-repeat="task in tasks">
+                <!-- Add a checkbox to toggle the completed state of the task -->
+                <input 
+                    type="checkbox" 
+                    ng-model="task.completed" 
+                    ng-change="saveTasks()"
+                >
+                        <!-- Display the task description -->
+                <span ng-class="{'completed': task.completed}">
+                    {{task.title}}
+                </span>
+                <button ng-click="deleteTask(task)">
+                    Delete
+                </button>
+            </li>
+        </ul> 
+    </div>
+</body>
+</html>
