@@ -11,40 +11,43 @@
 </head>
 <body ng-app="todoApp">
     <!-- Create a container div for our app -->
-    <div ng-controller="todoCtrl">
-        <h1 class="title">Task Management</h1>
-
-        <!-- Add a form with an input field and a button to add new tasks -->
-        <form ng-submit="addTask()">
-            <input 
-                type="text" 
-                ng-model="newTask" 
-                autocomplete="off"
-                placeholder="Add a new task..."
-            >
-            <button type="submit">
-                Add Task
-            </button>
-        </form>
-
-        <!-- Add a list to display the tasks -->
-        <ul>
-            <li ng-repeat="task in tasks">
-                <!-- Add a checkbox to toggle the completed state of the task -->
+    <div class="container">
+        <div ng-controller="todoCtrl">
+            <h1 class="title">Task Management</h1>
+    
+            <!-- Add a form with an input field and a button to add new tasks -->
+            <form ng-submit="addTask()">
                 <input 
-                    type="checkbox" 
-                    ng-model="task.completed" 
-                    ng-change="saveTasks()"
+                    type="text" 
+                    ng-model="newTask" 
+                    autocomplete="off"
+                    placeholder="Add a new task..."
                 >
-                        <!-- Display the task description -->
-                <span ng-class="{'completed': task.completed}">
-                    {{task.title}}
-                </span>
-                <button ng-click="deleteTask(task)">
-                    Delete
+                <button type="submit">
+                    Add Task
                 </button>
-            </li>
-        </ul> 
+            </form>
+    
+            <!-- Add a list to display the tasks -->
+            <ul>
+                <li ng-repeat="task in tasks">
+                    <!-- Add a checkbox to toggle the completed state of the task -->
+                    <input 
+                        type="checkbox" 
+                        ng-model="task.completed" 
+                        ng-change="saveTasks()"
+                    >
+                    <!-- Display the task description -->
+                    <span ng-class="{'completed': task.completed}">
+                        {{task.title}}
+                    </span>
+                    <button ng-click="deleteTask(task)">
+                        Delete
+                    </button>
+                </li>
+            </ul> 
+        </div>
     </div>
+    
 </body>
 </html>
