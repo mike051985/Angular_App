@@ -99,6 +99,10 @@ li button {
 
 /* For screens smaller than 480px (mobile portrait) */
 @media only screen and (max-width: 480px) {
+    .container {
+        max-width: 300px;
+    }
+    
     form {
         flex-direction: column;
     }
