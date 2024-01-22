@@ -115,6 +115,10 @@ li button {
     button[type="submit"] {
         margin-top: 10px;
     }
+
+    li span {
+        margin-right: 20px;
+    }
 }
 
 /* For screens between 480px and 768px (mobile landscape and tablet portrait) */
